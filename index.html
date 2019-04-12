@@ -6,24 +6,26 @@
 </head>
 <body>
   <form id="info">
-    <label for="lastname">Votre nom  : </label><input type="text" name="lastname" placeholder="Nom" id="lastname" />
-    <label for="firstname">Votre prenom  : </label><input type="text" placeholder="Prénom" name="firstname" id="firstname" />
-    <label for="city">Votre ville  : </label><input type="text" placeholder="Ville" name="city" id="city" />
+    <label for="lastname">Votre nom  : </label><input type="text" name="lastname" value="John" placeholder="Nom" id="lastname" />
+    <label for="firstname">Votre prenom  : </label><input type="text" value="Doe" placeholder="Prénom" name="firstname" id="firstname" />
+    <label for="city">Votre ville  : </label><input type="text" value="" placeholder="Ville" name="city" id="city" />
     <button type="button" name="button" id="RAZ">RAZ</button>
   </form>
 
   <script type="text/javascript">
   // Récupération de l'id du bouton
-  var element = document.getElementById('RAZ');
+  var button = document.getElementById('RAZ');
   // Au click sur le bouton RAZ, lance la fonction suivante
-  element.addEventListener('click', function()
+  button.addEventListener('click', function()
     {
       // Utilisation du reset pour réinitialisé l'id (ici le formulaire) en entier
         // document.getElementById('info').reset();
-      // Utilisation du value vide pour reset un élément en particulier
-        document.getElementById('lastname').value='';
-        document.getElementById('firstname').value='';
-        document.getElementById('city').value='';
+      // Utilisation d'une boucle parcourant une liste de noeud contenant les balises de type 'input'
+      for (var i = 0; i < document.getElementsByTagName("input").length; i++)
+        {
+          // Et les réinitialise en modifiant leurs value
+          document.getElementsByTagName("input")[i].value = "";
+        }
     });
   </script>
 </body>
